@@ -1,0 +1,233 @@
+/* QUESTION 1 JAVA 
+
+import java.util.Scanner;
+public class ChangeMaker
+{
+	public static void main (String [] args)
+	{
+			int amount, originalAmount,
+					quarters, dimes, nickels, pennies;
+			System.out.println ("Enter a whole number from 1 to 99.");
+			System.out.println ("I will find a combination of coins");
+			System.out.println ("that equals that amount of change.");
+			Scanner keyboard = new Scanner (System.in);
+			amount = keyboard.nextInt ();
+			originalAmount = amount;
+			quarters = amount / 25;
+			amount = amount % 25;
+			dimes = amount / 10;
+			amount = amount % 10;
+			nickels = amount / 5;
+			amount = amount % 5;
+			pennies = amount;
+			System.out.println (originalAmount +
+							" cents in coins can be given as:");
+			System.out.println (quarters + " quarters");
+			System.out.println (dimes + " dimes");
+			System.out.println (nickels + " nickels and");
+			System.out.println (pennies + " pennies");
+	}
+}
+*/
+
+import Foundation
+
+var amount, originalAmount, calcAmount, quarters, dimes, nickels, pennies: Int
+
+print ("Enter a whole number from 1 to 99.")
+print ("I will find a combination of coins")
+print ("that equals that amount of change. ", terminator: "")
+
+// read user input
+if let amount = readLine() {
+	if let originalAmount = Int(amount){
+		if (originalAmount >= 1){
+				if (originalAmount <= 99){
+						calcAmount = originalAmount
+
+						quarters = calcAmount/25
+						calcAmount = calcAmount%25
+
+						dimes = calcAmount / 10;
+						calcAmount = calcAmount % 10;
+
+						nickels = calcAmount / 5;
+						calcAmount = calcAmount % 5;
+
+						pennies = calcAmount;
+
+						print ("\(originalAmount) cents in coins can be given as:")
+						print ("\(quarters) quarters")
+						print ("\(dimes) dimes")
+						print ("\(nickels) nickels")
+						print ("\(pennies) pennies")
+
+				}else{
+						print ("NUMBER OUT OF BOUNDS");
+				}
+		}else{
+				print ("NUMBER OUT OF BOUNDS");
+		}
+	}else{
+			print ("NUMBER OUT OF BOUNDS");
+	}
+}
+
+// ========================================================================
+/* QUESTION 2 JAVA 
+public class StringDemo
+{
+		public static void main (String [] args)
+		{
+				String sentence = "Text processing is hard!";
+				int position = sentence.indexOf ("hard");
+				System.out.println (sentence);
+				System.out.println ("012345678901234567890123");
+				System.out.println ("The word \"hard\" starts at index "
+								+ position);
+				sentence = sentence.substring (0, position) + "easy!";
+				sentence = sentence.toUpperCase ();
+				System.out.println ("The changed string is:");
+				System.out.println (sentence);
+		}
+}
+*/
+
+var sentence = "Text processing is hard!"
+var mySubstring = sentence.prefix(19)
+
+var position = mySubstring.count
+
+print(sentence)
+print("012345678901234567890123")
+
+print("The word \"hard\" starts at index \(position)")
+
+mySubstring += "easy!"
+
+print("The changed string is: ")
+print(mySubstring.uppercased())
+
+// ========================================================================
+/* QUESTION 3 JAVA 
+
+import java.util.Scanner;
+public class Grader
+{
+		public static void main (String [] args)
+		{
+				int score;
+				char grade;
+				System.out.println ("Enter your score: ");
+				Scanner keyboard = new Scanner (System.in);
+				score = keyboard.nextInt ();
+				if (score >= 90)
+						grade = 'A';
+				else if (score >= 80)
+						grade = 'B';
+				else if (score >= 70)
+						grade = 'C';
+				else if (score >= 60)
+						grade = 'D';
+				else
+						grade = 'F';
+				System.out.println ("Score = " + score);
+				System.out.println ("Grade = " + grade);
+		}
+}
+*/					
+
+var score: Int
+var grade: Character
+
+print ("Enter your score: ", terminator: "")
+
+if let score = readLine() {
+		if let score = Int(score){
+				if (score >= 90){
+					 grade = "A";
+						print("Score = \(score)")
+						print("Grade = \(grade)")
+				}
+				else if (score >= 80){
+					 grade = "B";
+						print("Score = \(score)")
+						print("Grade = \(grade)")
+				}
+				else if (score >= 70){
+					 grade = "C";
+						print("Score = \(score)")
+						print("Grade = \(grade)")
+				}
+				else if (score >= 60){
+					 grade = "D";
+						print("Score = \(score)")
+						print("Grade = \(grade)")
+				}
+				else {
+					 grade = "F";
+						print("Score = \(score)")
+						print("Grade = \(grade)")
+				}
+		}
+}
+
+// ========================================================================
+/* QUESTION 4 JAVA 
+import java.util.Scanner;
+public class MultipleBirths
+{
+		public static void main (String [] args)
+		{
+				int numberOfBabies;
+				System.out.print ("Enter number of babies: ");
+				Scanner keyboard = new Scanner (System.in);
+				numberOfBabies = keyboard.nextInt ();
+				switch (numberOfBabies)
+				{
+						case 1:
+								System.out.println ("Congratulations.");
+								break;
+						case 2:
+								System.out.println ("Wow. Twins.");
+								break;
+						case 3:
+								System.out.println ("Wow. Triplets.");
+								break;
+						case 4:
+						case 5:
+								System.out.print ("Unbelieveable; ");
+								System.out.println (numberOfBabies + " babies.");
+								break;
+						default:
+								System.out.println ("I don't believe you.");
+								break;
+				}
+		}
+}
+*/
+
+var numberOfBabies: Int
+
+print ("Enter number of babies: ", terminator: "")
+
+if let numberOfBabies = readLine() {
+		if let numberOfBabies = Int(numberOfBabies){
+				switch numberOfBabies{
+				case 1:
+						print("Congratulations.")
+				case 2:
+						print("Wow. Twins.")
+				case 3:
+						print("Wow. Triplets.")
+				case 4:
+						print("Unbelieveable; ")
+						print("\(numberOfBabies) babies.")
+				case 5:
+						print("Unbelieveable; ")
+						print("\(numberOfBabies) babies.")
+				default:
+						print("I don't believe you.")
+				}
+		}
+}
