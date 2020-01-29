@@ -1,0 +1,121 @@
+//
+//  main.swift
+//  assign2
+//
+//  Created by Lauren Kapraun on 1/27/20.
+//  Copyright © 2020 Lauren Kapraun. All rights reserved.
+//
+
+/*QUESTION B
+import Foundation
+
+class Fraction {
+    func getCommonDenominator(_ d1:Int, _ d2:Int) -> Int{
+        var denominator = d1%d2
+        return denominator
+    }
+    
+    func getLargerDenominator(_ d1:Int, _ d2:Int) -> Int{
+        if d1 > d2{
+            return d1
+        }else{
+            return d2
+        }
+    }
+    
+    func addFraction_Numerator(_ n1:Int, _ n2:Int) -> Int{
+        var numerator = n1+n2
+        return numerator
+    }
+    
+    func subtractFraction_Numerator(_ n1:Int, _ n2:Int) -> Int{
+        var numerator = n1-n2
+        return numerator
+    }
+    
+    func multiplyFraction_Numerator(_ n1:Int, _ n2:Int) -> Int{
+        var numerator = n1*n2
+        return numerator
+    }
+    func multiplyFraction_Denominator(_ d1:Int, _ d2:Int) -> Int{
+        var denominator = d1*d2
+        return denominator
+    }
+    
+    func divideFraction_Numerator(_ n1:Int, _ n2:Int) -> Int{
+        //Take reciprocal of second fraction
+        var numerator = n1*n2
+        return numerator
+    }
+    
+    func divideFraction_Denominator(_ d1:Int, _ d2:Int) -> Int{
+        //Take reciprocal of second fraction
+        var denominator = d1*d2
+        return denominator
+    }
+}
+
+var fraction = Fraction()
+
+//acd = Addition Common Denominator
+var acd = fraction.getCommonDenominator(2,4)
+
+//scd = Subtraction Common Denominator
+var scd = fraction.getCommonDenominator(2,3)
+//sld = Subtraction Larger Denominator
+var sld = fraction.getLargerDenominator(2,3)
+
+print("1/2 + 1/4 = \(fraction.addFraction_Numerator((1*acd),1))/\(acd*acd)")
+print("1/2 - 1/3 =  \(fraction.subtractFraction_Numerator((1*scd), 1))/\(sld*scd) ")
+print("1/2 * 1/3 = \(fraction.multiplyFraction_Numerator(1,1))/\(fraction.multiplyFraction_Denominator(2,3))")
+print("1/2 / 1/3 = \(fraction.divideFraction_Numerator(1,3))/\(fraction.divideFraction_Numerator(2,1))")
+*/
+
+/* QUESTION A
+import Foundation
+
+print("How many temperatures do you have? ", terminator: "")
+
+if let size = readLine(){
+    if let size = Int(size){
+        // Create variables for the array, sum, and average
+        var temperature:[Double] = []
+        var sum: Double = 0.0
+        var average: Double = 0.0
+        
+        // Read temperatures
+        print("Enter \(size) temperatures: ", terminator: "")
+        for i in 1...size{
+            if let temperatures = readLine(){
+               if let temperatures = Double(temperatures){
+                    temperature.append(temperatures)
+                }
+            }
+        }
+        
+        // Compute temperature average & sum
+        for temperatures in temperature{
+            sum += temperatures
+            average = sum/Double(temperature.count)
+        }
+        print("The average temperature is \(average)")
+        
+        // Display each temperature and its relation to the average:
+        print("The temperatures are")
+        for temperatures in temperature{
+            if(temperatures < average){
+                print("\(temperatures) below average.")
+            }
+            else if(temperatures > average){
+                print("\(temperatures) above average.")
+            }
+            else{
+                //temperature[index] == average
+                print("\(temperatures) the average.")
+            }
+        }
+        
+         print("Have a nice week.")
+    }
+}
+*/
