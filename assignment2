@@ -6,19 +6,46 @@
 //  Copyright © 2020 Lauren Kapraun. All rights reserved.
 //
 
-/*QUESTION B
+//******************** QUESTION B ********************//
+/*
 import Foundation
 
 class Fraction {
-    let numerator, denominator:Int
+    let numerator, denominator: Int
 
-    init(numerator: Int, denominator: Int) {
+    init (numerator: Int, denominator: Int) {
         self.numerator = numerator
         self.denominator = denominator
     }
+    
+    func reduce (_ numerator: Int, _ denominator: Int) -> String {
+        var numerator = self.numerator
+        var denominator = self.denominator
+        
+        var n = numerator
+        var d = denominator
+        
+        func gcd(_ n: Int, _ d: Int) -> Int {
+            let r = n % d
+            
+            if (r != 0) {
+                return gcd(d, r)
+            } else {
+                return d
+            }
+        }
+        
+        let finalGCD = gcd(numerator, denominator)
+        
+        numerator = numerator / finalGCD
+        denominator = denominator / finalGCD
+       
+        
+        return "\(numerator)/\(denominator)"
+    }
 }
 
-func add(fraction1:Fraction, fraction2:Fraction) -> Fraction{
+func add(_ fraction1:Fraction, _ fraction2:Fraction) -> Fraction {
   let d1 = fraction1.denominator
   let d2 = fraction2.denominator
   let n1 = fraction1.numerator
@@ -28,18 +55,18 @@ func add(fraction1:Fraction, fraction2:Fraction) -> Fraction{
   var gcd = 0
 
   if (d2%d1 == 0) {
-    gcd = d1; 
+    gcd = d1;
   } else{
     gcd = d2%d1;
   }
   
-  let denominator = (d1*d2) / gcd;  
-  let numerator = ((n1)*(denominator/d1)) + ((n2)*(denominator/d2)) 
+  let denominator = (d1*d2) / gcd;
+  let numerator = ((n1)*(denominator/d1)) + ((n2)*(denominator/d2))
 
   return Fraction(numerator: numerator, denominator: denominator)
 }
 
-func subtract(fraction1:Fraction, fraction2:Fraction) -> Fraction{
+func subtract(_ fraction1:Fraction, _ fraction2:Fraction) -> Fraction {
   let d1 = fraction1.denominator
   let d2 = fraction2.denominator
   let n1 = fraction1.numerator
@@ -54,7 +81,7 @@ func subtract(fraction1:Fraction, fraction2:Fraction) -> Fraction{
   return Fraction(numerator: numerator, denominator: denominator)
 }
 
-func multiply(fraction1:Fraction, fraction2:Fraction) -> Fraction{
+func multiply(_ fraction1:Fraction, _ fraction2:Fraction) -> Fraction {
   let d1 = fraction1.denominator
   let d2 = fraction2.denominator
   let n1 = fraction1.numerator
@@ -66,7 +93,7 @@ func multiply(fraction1:Fraction, fraction2:Fraction) -> Fraction{
   return Fraction(numerator: numerator, denominator: denominator)
 }
 
-func divide(fraction1:Fraction, fraction2:Fraction) -> Fraction{
+func divide(_ fraction1:Fraction, _ fraction2:Fraction) -> Fraction {
   let d1 = fraction1.denominator
   let d2 = fraction2.denominator
   let n1 = fraction1.numerator
@@ -77,25 +104,6 @@ func divide(fraction1:Fraction, fraction2:Fraction) -> Fraction{
   
   return Fraction(numerator: numerator, denominator: denominator)
 }
-
-func reduce (fraction1:Fraction) -> Fraction {  
-    let n1 = fraction1.numerator
-    let d1 = fraction1.denominator
-    var gcd = 0
-    var numerator:Int = 0
-    var denominator: Int = 0
-
-    if (n1 % d1 == 0) {
-      gcd = d1
-    } else{
-      gcd = n1 % d1
-    }
-
-    numerator = numerator/gcd;
-    denominator = denominator/gcd;
-
-    return Fraction(numerator: numerator, denominator: denominator)
-}  
 
 let f1 = Fraction(numerator: 1, denominator: 2)
 let f2 = Fraction(numerator: 1, denominator: 6)
@@ -108,23 +116,22 @@ let n1 = f1.numerator
 let n2 = f2.numerator
 let n3 = f3.numerator
 
-let fAdd = add(fraction1:f1, fraction2:f2)
-let fSubtract = subtract(fraction1:f1, fraction2:f3)
-let fMultiply = multiply(fraction1:f1, fraction2:f3)
-let fDivide = divide(fraction1:f1, fraction2:f3)
+let fAdd = add(f1, f2)
+let fSubtract = subtract(f1, f3)
+let fMultiply = multiply(f1, f3)
+let fDivide = divide(f1, f3)
 
 print("The addition of \(n1)/\(d1) + \(n2)/\(d2) is: \(fAdd.numerator)/\(fAdd.denominator)")
 print("The subtraction of \(n1)/\(d1) + \(n3)/\(d3) is: \(fSubtract.numerator)/\(fSubtract.denominator)")
 print("The multiplication of \(n1)/\(d1) * \(n3)/\(d3) is: \(fMultiply.numerator)/\(fMultiply.denominator)")
-print("The division of \(n1)/\(d1) * \(n3)/\(d3) is: \(fDivide.numerator)/\(fDivide.denominator)")
+print("The division of \(n1)/\(d1) * \(n3)/\(d3) is: \(fDivide.numerator)/\(fDivide.denominator) \n")
 
-print("\(reduce(fraction1:fAdd.numerator))/\(reduce(fraction1:fAdd.denominator))")
-
-
-//print(fAdd.reduce())
+print("\(fAdd.numerator)/\(fAdd.denominator) reduced is: \(fAdd.reduce(fAdd.numerator, fAdd.denominator)) \n")
 */
 
-/* QUESTION A
+
+//******************** QUESTION A ********************//
+/*
 import Foundation
 
 print("How many temperatures do you have? ", terminator: "")
@@ -135,7 +142,7 @@ if let size = readLine(){
         var temperature:[Double] = []
         var sum: Double = 0.0
         var average: Double = 0.0
-        
+
         // Read temperatures
         print("Enter \(size) temperatures: ", terminator: "")
         for i in 1...size{
@@ -145,14 +152,14 @@ if let size = readLine(){
                 }
             }
         }
-        
+
         // Compute temperature average & sum
         for temperatures in temperature{
             sum += temperatures
             average = sum/Double(temperature.count)
         }
         print("The average temperature is \(average)")
-        
+
         // Display each temperature and its relation to the average:
         print("The temperatures are")
         for temperatures in temperature{
@@ -167,7 +174,7 @@ if let size = readLine(){
                 print("\(temperatures) the average.")
             }
         }
-        
+
          print("Have a nice week.")
     }
 }
