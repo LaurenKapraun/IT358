@@ -19,51 +19,107 @@ class Fraction {
 }
 
 func add(fraction1:Fraction, fraction2:Fraction) -> Fraction{
-    let commonDenominator = fraction1.denominator%fraction2.denominator
-    
-    let numerator = (fraction2.numerator*commonDenominator) + fraction1.numerator
-    let denominator = commonDenominator*commonDenominator
-    
-    return Fraction(numerator: numerator, denominator: denominator)
+  let d1 = fraction1.denominator
+  let d2 = fraction2.denominator
+  let n1 = fraction1.numerator
+  let n2 = fraction1.numerator
+
+  // Greatest Common Denominator
+  var gcd = 0
+
+  if (d2%d1 == 0) {
+    gcd = d1; 
+  } else{
+    gcd = d2%d1;
+  }
+  
+  let denominator = (d1*d2) / gcd;  
+  let numerator = ((n1)*(denominator/d1)) + ((n2)*(denominator/d2)) 
+
+  return Fraction(numerator: numerator, denominator: denominator)
 }
 
 func subtract(fraction1:Fraction, fraction2:Fraction) -> Fraction{
-    let commonDenominator = fraction1.denominator%fraction2.denominator
-    let largerDenominator = max(fraction1.denominator, fraction2.denominator)
-    
-    let numerator = (fraction1.numerator*commonDenominator) - fraction2.numerator
-    let denominator = commonDenominator*largerDenominator
-    
-    return Fraction(numerator: numerator, denominator: denominator)
+  let d1 = fraction1.denominator
+  let d2 = fraction2.denominator
+  let n1 = fraction1.numerator
+  let n2 = fraction1.numerator
+
+  let commonDenominator = d1%d2
+  let largerDenominator = max(d1, d2)
+  
+  let numerator = (n1*commonDenominator) - n2
+  let denominator = commonDenominator*largerDenominator
+  
+  return Fraction(numerator: numerator, denominator: denominator)
 }
 
 func multiply(fraction1:Fraction, fraction2:Fraction) -> Fraction{
-    let numerator = fraction1.numerator*fraction2.numerator
-    let denominator = fraction1.denominator*fraction2.denominator
-    
-    return Fraction(numerator: numerator, denominator: denominator)
+  let d1 = fraction1.denominator
+  let d2 = fraction2.denominator
+  let n1 = fraction1.numerator
+  let n2 = fraction1.numerator
+
+  let numerator = n1*n2
+  let denominator = d1*d2
+  
+  return Fraction(numerator: numerator, denominator: denominator)
 }
 
 func divide(fraction1:Fraction, fraction2:Fraction) -> Fraction{
-    let numerator = fraction1.numerator*fraction2.denominator
-    let denominator = fraction1.denominator*fraction2.numerator
-    
-    return Fraction(numerator: numerator, denominator: denominator)
+  let d1 = fraction1.denominator
+  let d2 = fraction2.denominator
+  let n1 = fraction1.numerator
+  let n2 = fraction1.numerator
+
+  let numerator = n1*d2
+  let denominator = d1*n2
+  
+  return Fraction(numerator: numerator, denominator: denominator)
 }
 
+func reduce (fraction1:Fraction) -> Fraction {  
+    let n1 = fraction1.numerator
+    let d1 = fraction1.denominator
+    var gcd = 0
+    var numerator:Int = 0
+    var denominator: Int = 0
+
+    if (n1 % d1 == 0) {
+      gcd = d1
+    } else{
+      gcd = n1 % d1
+    }
+
+    numerator = numerator/gcd;
+    denominator = denominator/gcd;
+
+    return Fraction(numerator: numerator, denominator: denominator)
+}  
+
 let f1 = Fraction(numerator: 1, denominator: 2)
-let f2 = Fraction(numerator: 1, denominator: 4)
+let f2 = Fraction(numerator: 1, denominator: 6)
 let f3 = Fraction(numerator: 1, denominator: 3)
+
+let d1 = f1.denominator
+let d2 = f2.denominator
+let d3 = f3.denominator
+let n1 = f1.numerator
+let n2 = f2.numerator
+let n3 = f3.numerator
 
 let fAdd = add(fraction1:f1, fraction2:f2)
 let fSubtract = subtract(fraction1:f1, fraction2:f3)
 let fMultiply = multiply(fraction1:f1, fraction2:f3)
 let fDivide = divide(fraction1:f1, fraction2:f3)
 
-print("The addition of 1/2 + 1/4 is: \(fAdd.numerator)/\(fAdd.denominator)")
-print("The subtraction of 1/2 + 1/3 is: \(fSubtract.numerator)/\(fSubtract.denominator)")
-print("The multiplication of 1/3 + 1/3 is: \(fMultiply.numerator)/\(fMultiply.denominator)")
-print("The division of 1/2 + 1/3 is: \(fDivide.numerator)/\(fDivide.denominator)")
+print("The addition of \(n1)/\(d1) + \(n2)/\(d2) is: \(fAdd.numerator)/\(fAdd.denominator)")
+print("The subtraction of \(n1)/\(d1) + \(n3)/\(d3) is: \(fSubtract.numerator)/\(fSubtract.denominator)")
+print("The multiplication of \(n1)/\(d1) * \(n3)/\(d3) is: \(fMultiply.numerator)/\(fMultiply.denominator)")
+print("The division of \(n1)/\(d1) * \(n3)/\(d3) is: \(fDivide.numerator)/\(fDivide.denominator)")
+
+print("\(reduce(fraction1:fAdd.numerator))/\(reduce(fraction1:fAdd.denominator))")
+
 
 //print(fAdd.reduce())
 */
