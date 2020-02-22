@@ -1,5 +1,16 @@
-# IT358
-Mobile and Cloud Computing
+# IT358: Mobile and Cloud Computing
+
+## Course Objectives
+* Describe features, benefits, challenges, and operations of cloud computing
+* Learn about common platforms and applications, cloud computing products and services
+* Understand cloud computing deployment strategies and transitions
+* Describe cloud computing standards and best practices
+* Analyze, manage and implement security, data integrity and privacy for both public and private clouds
+* Understand iOS and Swift's basic language features 
+* Learn about Model-View-Controller and other core iOS computing skills
+* Describe iOS application architecture
+* Understand data persistence in iOS
+* Implement iOS UI and Storyboards
 
 ## [In-Class Notes](_Class-Notes)
 - [01/27/2020](_Class-Notes/01-27-20)
