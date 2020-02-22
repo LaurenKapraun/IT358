@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Part D</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code full">
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					import Foundation
+
+					//**********************************************************************
+					//Item
+					//Represents an item in a shopping cart.
+					//**********************************************************************
+					public protocol Discountable {
+					    func discount() -> Double
+					}
+
+					public class Item: Discountable {
+					    private let name: String
+					    private let price: Double
+					    private let quantity: Int
+
+					    // -------------------------------------------------------
+					    //  Create a new item with the given attributes.
+					    // -------------------------------------------------------
+					    public init(_ itemName: String, _ itemPrice: Double, _ numPurchased: Int) {
+					        self.name = itemName
+					        self.price = itemPrice
+					        self.quantity = numPurchased
+					    }
+					    
+					    public func discount() -> Double {
+					        var newPrice = self.price
+					        
+					        if (newPrice > 100){
+					            let discount = 0.10
+					            newPrice = newPrice - (newPrice*discount)
+					        }else if (newPrice > 200){
+					            let discount = 0.25
+					            newPrice = newPrice - (newPrice*discount)
+					        }else{
+					            let discount = 0
+					        }
+					        
+					        return newPrice
+					    }
+
+					    // -------------------------------------------------------
+					    //   Return a string with the information about the item
+					    // -------------------------------------------------------
+					    public func toString() -> String {
+					        //Create a Currency Converter
+					        let formatter = NumberFormatter()
+					        formatter.locale = Locale.current
+					        formatter.numberStyle = .currency
+
+					        //Format Price and the Price*Quantity
+					        let formatterPrice = formatter.string(from: price as NSNumber)!
+					        let formatterPriceQuantity = formatter.string(from: price*Double(quantity) as NSNumber)!
+
+					        return "\(name) \t \(formatterPrice) \t \(quantity) \t\t\t \(formatterPriceQuantity) \n"
+					    }
+					    
+					    public func getTotalPrice () -> Double {
+					        let totalPrice = price * Double(quantity)
+					        return totalPrice
+					    }
+					}
+
+					let item: Discountable = Item("iPhone X", 999.00, 1)
+					if item.discount() > 0.20 {
+					    print("...")
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/QD-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

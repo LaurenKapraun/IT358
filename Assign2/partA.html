@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Part A: Listing 7.2</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code full">
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					import Foundation
+
+					print("How many temperatures do you have? ", terminator: "")
+
+					if let size = readLine(){
+					    if let size = Int(size){
+					        // Create variables for the array, sum, and average
+					        var temperature:[Double] = []
+					        var sum: Double = 0.0
+					        var average: Double = 0.0
+					        
+					        // Read temperatures
+					        print("Enter \(size) temperatures: ", terminator: "")
+					        for i in 1...size{
+					            if let temperatures = readLine(){
+					               if let temperatures = Double(temperatures){
+					                    temperature.append(temperatures)
+					                }
+					            }
+					        }
+					        
+					        // Compute temperature average & sum
+					        for temperatures in temperature{
+					            sum += temperatures
+					            average = sum/Double(temperature.count)
+					        }
+					        print("The average temperature is \(average)")
+					        
+					        // Display each temperature and its relation to the average:
+					        print("The temperatures are")
+					        for temperatures in temperature{
+					            if(temperatures < average){
+					                print("\(temperatures) below average.")
+					            }
+					            else if(temperatures > average){
+					                print("\(temperatures) above average.")
+					            }
+					            else{
+					                //temperature[index] == average
+					                print("\(temperatures) the average.")
+					            }
+					        }
+					        
+					         print("Have a nice week.")
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/QA-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

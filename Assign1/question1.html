@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Question 1: 2.3</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code">
+			<span>
+				<h2>Java</h2>
+				<pre><code class="language-java">
+					import java.util.Scanner;
+					public class ChangeMaker
+					{
+					    public static void main (String [] args)
+					    {
+					        int amount, originalAmount,
+					            quarters, dimes, nickels, pennies;
+					        System.out.println ("Enter a whole number from 1 to 99.");
+					        System.out.println ("I will find a combination of coins");
+					        System.out.println ("that equals that amount of change.");
+					        Scanner keyboard = new Scanner (System.in);
+					        amount = keyboard.nextInt ();
+					        originalAmount = amount;
+					        quarters = amount / 25;
+					        amount = amount % 25;
+					        dimes = amount / 10;
+					        amount = amount % 10;
+					        nickels = amount / 5;
+					        amount = amount % 5;
+					        pennies = amount;
+					        System.out.println (originalAmount +
+					                " cents in coins can be given as:");
+					        System.out.println (quarters + " quarters");
+					        System.out.println (dimes + " dimes");
+					        System.out.println (nickels + " nickels and");
+					        System.out.println (pennies + " pennies");
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q1-J.png">
+
+			</span>
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					import Foundation
+
+					var amount, originalAmount, calcAmount, quarters, dimes, nickels, pennies: Int
+
+					print ("Enter a whole number from 1 to 99.")
+					print ("I will find a combination of coins")
+					print ("that equals that amount of change. ", terminator: "")
+
+					// read user input
+					if let amount = readLine() {
+					    if let originalAmount = Int(amount){
+					        if (originalAmount >= 1){
+					            if (originalAmount <= 99){
+					                calcAmount = originalAmount
+					                
+					                quarters = calcAmount/25
+					                calcAmount = calcAmount%25
+					                
+					                dimes = calcAmount / 10;
+					                calcAmount = calcAmount % 10;
+					                
+					                nickels = calcAmount / 5;
+					                calcAmount = calcAmount % 5;
+					                
+					                pennies = calcAmount;
+					                
+					                print ("\(originalAmount) cents in coins can be given as:")
+					                print ("\(quarters) quarters")
+					                print ("\(dimes) dimes")
+					                print ("\(nickels) nickels")
+					                print ("\(pennies) pennies")
+					                
+					            }else{
+					                print ("NUMBER OUT OF BOUNDS");
+					            }
+					        }else{
+					            print ("NUMBER OUT OF BOUNDS");
+					        }
+					    }else{
+					        print ("NUMBER OUT OF BOUNDS");
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q1-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Question 3: 3.3</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code">
+			<span>
+				<h2>Java</h2>
+				<pre><code class="language-java">
+					import java.util.Scanner;
+					public class Grader
+					{
+					    public static void main (String [] args)
+					    {
+					        int score;
+					        char grade;
+					        System.out.println ("Enter your score: ");
+					        Scanner keyboard = new Scanner (System.in);
+					        score = keyboard.nextInt ();
+					        if (score >= 90)
+					            grade = 'A';
+					        else if (score >= 80)
+					            grade = 'B';
+					        else if (score >= 70)
+					            grade = 'C';
+					        else if (score >= 60)
+					            grade = 'D';
+					        else
+					            grade = 'F';
+					        System.out.println ("Score = " + score);
+					        System.out.println ("Grade = " + grade);
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q3-J.png">
+			</span>
+
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					var score: Int
+					var grade: Character
+
+					print ("Enter your score: ", terminator: "")
+
+					if let score = readLine() {
+					    if let score = Int(score){
+					        if (score >= 90){
+					           grade = "A";
+					            print("Score = \(score)")
+					            print("Grade = \(grade)")
+					        }
+					        else if (score >= 80){
+					           grade = "B";
+					            print("Score = \(score)")
+					            print("Grade = \(grade)")
+					        }
+					        else if (score >= 70){
+					           grade = "C";
+					            print("Score = \(score)")
+					            print("Grade = \(grade)")
+					        }
+					        else if (score >= 60){
+					           grade = "D";
+					            print("Score = \(score)")
+					            print("Grade = \(grade)")
+					        }
+					        else {
+					           grade = "F";
+					            print("Score = \(score)")
+					            print("Grade = \(grade)")
+					        }
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q3-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

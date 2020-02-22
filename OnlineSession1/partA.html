@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Part A</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<h2>Step #3</h2>
+		<p>The indexPath is similar to an excel sheet in that the coordinates represent the positioin of an item. For example, item (0,1) represents the item stored in section 0, row 1 (in this example, it would be the Bears). This particular set ranges from (0,0) to (0,31), or 0 sections with rows 0 to 31.</p>
+		<img src="images/A3.png" style="width: 90%; margin: 0 auto;">
+
+		<h2>Step #9</h2>
+		<img src="images/A9.png" style="width: 90%; margin: 0 auto;">
+
+		<h2>Step #10</h2>
+		<img src="images/A10.png" style="width: 90%; margin: 0 auto;">
+
+		<h2>Working Table View Methods</h2>
+		<div class="code full">
+			<span>
+				<pre>
+					<code class="language-swift">	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	    		// #warning Incomplete implementation, return the number of rows
+	    		guard let nflTeams = filteredNFLTeams else {
+	        		return 0
+	    		}
+	    		return nflTeams.count
+			}
+
+			override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	    	let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
+	        if let nflTeams = filteredNFLTeams {
+	            let team = nflTeams[indexPath.row]
+	            cell.textLabel!.text = team
+	        }
+	    	return cell
+
+			}
+
+			override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
+        if let nflTeams = filteredNFLTeams {
+            let team = nflTeams[indexPath.row]
+            cell.textLabel!.text = team
+            print("You picked \(team)")
+        }
+    }</code>
+	</pre>
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Part C</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code full">
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					import Foundation
+
+					//**********************************************************************
+					//Item
+					//Represents an item in a shopping cart.
+					//**********************************************************************
+					public class Item {
+					    private let name: String
+					    private let price: Double
+					    private let quantity: Int
+
+					    // -------------------------------------------------------
+					    //  Create a new item with the given attributes.
+					    // -------------------------------------------------------
+					    public init(_ itemName: String, _ itemPrice: Double, _ numPurchased: Int) {
+					        self.name = itemName
+					        self.price = itemPrice
+					        self.quantity = numPurchased
+					    }
+
+					    // -------------------------------------------------------
+					    //   Return a string with the information about the item
+					    // -------------------------------------------------------
+					    public func toString() -> String {
+					        //Create a Currency Converter
+					        let formatter = NumberFormatter()
+					        formatter.locale = Locale.current
+					        formatter.numberStyle = .currency
+
+					        //Format Price and the Price*Quantity
+					        let formatterPrice = formatter.string(from: price as NSNumber)!
+					        let formatterPriceQuantity = formatter.string(from: price*Double(quantity) as NSNumber)!
+
+					        return "\(name) \t \(formatterPrice) \t \(quantity) \t\t\t \(formatterPriceQuantity) \n"
+					    }
+					    
+					    public func getTotalPrice () -> Double {
+					        let totalPrice = price * Double(quantity)
+					        return totalPrice
+					    }
+					}
+
+
+					//**********************************************************************
+					//ShoppingCart
+					//Represents a shopping cart as an array of items
+					//**********************************************************************
+					public class ShoppingCart {
+					    private var itemCount: Int
+					    private var totalPrice: Double
+					    private var capacity: Int
+					    private var cart: [Item?] = []
+
+					    // -----------------------------------------------------------
+					    //  Creates an empty shopping cart with a capacity of 3 items.
+					    // -----------------------------------------------------------
+					    public init() {
+					        capacity = 3
+					        itemCount = 0
+					        totalPrice = 0
+					        cart = Array<Item?>(repeating: nil, count: capacity)
+					    }
+
+					    // -------------------------------------------------------
+					    //  Adds an item to the shopping cart.
+					    // -------------------------------------------------------
+					    public func addToCart(_ itemName: String, _ price: Double, _ quantity: Int) -> Void {
+					        if (itemCount == capacity) {
+					            self.increaseSize()
+					            cart[itemCount] = Item(itemName, price, quantity)
+					        }else{
+					            cart[itemCount] = Item(itemName, price, quantity)
+					            itemCount = itemCount + 1
+					        }
+					        
+					        totalPrice = price * Double(quantity)
+					    }
+
+					    // -------------------------------------------------------
+					    //  Returns the contents of the cart together with
+					    //  summary information.
+					    // -------------------------------------------------------
+					    public func toString() -> String {
+					        //Create a Currency Converter
+					        let formatter = NumberFormatter()
+					        formatter.locale = Locale.current
+					        formatter.numberStyle = .currency
+
+					        //Create a String variable to be used to display the headers & Array Items
+					        var contents: String
+					        
+					        //Create a Double variable to calculate the total price each iteration
+					        var calcTotalPrice: Double = 0.0
+
+					        //Show first line
+					        contents = "\n Shopping Cart \n"
+
+					        //Create heading for Array Info
+					        contents += "\n Item \t Price \t Quantity \t Total \n"
+
+					        //Loop through the array
+					        for case let cartItems? in cart {
+					            contents += (cartItems.toString())
+					            calcTotalPrice = (cartItems.getTotalPrice()) + calcTotalPrice
+					        }
+
+					        //Add total price
+					        contents += "\n Total Price: \(formatter.string(from: calcTotalPrice as NSNumber)!) \n"
+
+					        return contents
+					    }
+
+					    // ------------------------------------------------------------
+					    //  Increases the capacity of the shopping cart by doubling it.
+					    // ------------------------------------------------------------
+					    private func increaseSize() {
+					        let tempItem:[Item?] = cart
+
+					        capacity = capacity * 2
+					        cart = Array<Item?>(repeating: nil, count: capacity)
+
+					        cart.append(contentsOf: tempItem)
+					    }
+					}
+
+					//**********************************************************************
+					//GoShopping2
+					//A Java program that illustrates the use of:
+					// various data types, control structures, I/O (scanner), import, arrays, number formatting,
+					// use of multiple classes, etc.
+					//**********************************************************************
+
+					var str: String = "y"
+					var qty: Int = 0
+					var name: String = ""
+					var pr: Double = 0.0
+					var totalPrice:Double = 0.0
+
+					let formatter = NumberFormatter()
+					formatter.locale = Locale.current
+					formatter.numberStyle = .currency
+
+
+					var myCart = ShoppingCart()
+
+					repeat {
+					    //Show Prompt
+					    print("Enter the name, price and quantity of the item")
+
+					    name = readLine(strippingNewline: true)!
+					    pr = Double(readLine(strippingNewline: true)!)!
+					    qty = Int(readLine(strippingNewline: true)!)!
+
+					    myCart.addToCart(name, pr, qty)
+					    print(myCart.toString())
+
+					    print("Do you wish to continue (y/n)?")
+					    let tempStr = readLine()
+					    str = String(tempStr!)
+					    
+					    
+					    totalPrice = totalPrice+(pr*Double(qty))
+
+					} while (str == "y")
+
+					print("Please pay \(formatter.string(from: totalPrice as NSNumber)!)")
+					
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/QC-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

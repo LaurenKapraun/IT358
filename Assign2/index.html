@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Lauren Kapraun</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<section>
+			<h2>A. Convert the following Java programs into Swift.</h2>
+			
+			<a href="partA.html" class="btn">Listing 7.2</a>
+			
+		</section>
+
+		<section>
+			<h2>B. Design and implement a Fraction class</h2>
+			<a href="partB.html" class="btn">Question B</a>
+			
+		</section>
+
+		<section>
+			<h2>C. Convert the classes into equivalent Swift classes.</h2>
+			<a href="partC.html" class="btn">Question C</a>
+		</section>
+
+		<section>
+			<h2>D. Questions</h2>
+			<h3>(i) Assume that the Item class above implements a protocol called "Discountable," which has the equivalent Java method signature below. What changes must be made to the item class? Make up a simple logic for the discount method and develop the Discountable protocol given.</h3>
+			<pre><code class="language-java">
+				public double discount(); // this method tells the amount of discount to give (0.10 means 10% discount)
+			</code></pre>
+
+			<h3>(ii) Assume that Item class indeed conforms to the Discountable protocol (described above), does the following code compile and run properly? Briefly explain.</h3>
+			<pre><code class="language-swift">
+				let item: Discountable = Item(itemName: "iPhone X", price:999.00, quantity: 1); 
+				if item.discount() > 0.20 {
+				    print("...");
+				}
+			</code></pre>
+
+			<p style="color:red; font-size: 1.2em;"><strong>Yes, the code will compile and run properly. It is creating an Item and then applying the Discountable protocol to it. It then checks to see if the discount is greater than 20%.</strong></p>
+			<p style="color:red; font-size: 1.2em;"><strong>In my discount function, I created an if statement stating, that if the price was greater than $200, then the discount should be 25%. This would then make the if statement given true, printing "...".</strong></p>
+
+			<a href="partD.html" class="btn">Question D</a>
+		</section>
+
+		<section>
+			<h2>E. iOS Programming</h2>
+			<a href="partE.html" class="btn">Question E</a>
+		</section>
+
+		<section>
+			<h2>F. [Required for grad students]</h2>
+			<h3>(i) Handle the currency requirement described above.</h3>
+			<a href="partC.html" class="btn">Question C</a>
+
+			<h3>(ii) Add the Comparable protocol to the Item class described above. Order two items by comparing the prices of the items, the less expensive item first. Now, when printing the total price of a cart, print also the items in the cart, with the less expensive item first.</h3>
+			<a href="partF.html" class="btn">Question F</a>
+			
+		</section>
+	</body>
+</html>

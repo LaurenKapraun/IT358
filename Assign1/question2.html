@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Question 2: 2.4</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code">
+			<span>
+				<h2>Java</h2>
+				<pre><code class="language-java">
+					public class StringDemo
+					{
+					    public static void main (String [] args)
+					    {
+					        String sentence = "Text processing is hard!";
+					        int position = sentence.indexOf ("hard");
+					        System.out.println (sentence);
+					        System.out.println ("012345678901234567890123");
+					        System.out.println ("The word \"hard\" starts at index "
+					                + position);
+					        sentence = sentence.substring (0, position) + "easy!";
+					        sentence = sentence.toUpperCase ();
+					        System.out.println ("The changed string is:");
+					        System.out.println (sentence);
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q2-J.png">
+
+			</span>
+
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					var sentence = "Text processing is hard!"
+					var mySubstring = sentence.prefix(19)
+
+					var position = mySubstring.count
+
+					print(sentence)
+					print("012345678901234567890123")
+
+					print("The word \"hard\" starts at index \(position)")
+
+					mySubstring += "easy!"
+
+					print("The changed string is: ")
+					print(mySubstring.uppercased())
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q2-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

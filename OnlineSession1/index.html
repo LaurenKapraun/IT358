@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Lauren Kapraun</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<section>
+			<h2>Part A</h2>
+			
+			<a href="partA.html" class="btn">Part A</a>
+			
+		</section>
+
+		<section>
+			<h2>Part B</h2>
+			<h3>1. Why use the "Debug View Hierarchy" feature (the 7th button from the left)? Hint: the 5-min mark of the video starts the discussion</h3>
+			<p>The View Hierarchy gives a similar appearance as the storyboard view. However, by using hierarchy, you can click and hold to move the view of the application to see how the elements are stacked on top of each other.</p>
+			
+			<p>You can use the slider, right above the icon menu to expand the elements, to get a better view of the hierarchy. The slider to the right either removes or adds the elements from view depending on the hierarchy.</p>
+
+			<p>This feature is useful when trying to debug an error depending on the view.</p>
+
+			<h3>2. What is the "Location" feature (the 9th button from the left) for?</h3>
+			<p>The Location feature is used to simulate by different locations. It is useful when creating a location-based application.</p>
+
+			<h3>3(a). What happened to the app when the IBOutlet is deleted from the code (since it is not needed; IBAction is needed instead)?</h3>
+			<p>The app will crash, even though the IBOutlet wasn't being referenced. The error reads, "this class is not key value coding-compliant for the key btnPressMe Pressed."</p>
+
+			<h3>3(b). What is the fix? Hint: This is discussed towards the end of the video. </h3>
+			<p>You go to the storyboard, and right-click on the View Controller. You will then click on the outlet, and press the circle to the left of the name to remove it. Then when you restart the application, it will run with no error.</p>
+			
+		</section>
+	</body>
+</html>

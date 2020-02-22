@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Question 4: 3.4</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code">
+			<span>
+				<h2>Java</h2>
+				<pre><code class="language-java">
+					import java.util.Scanner;
+					public class MultipleBirths
+					{
+					    public static void main (String [] args)
+					    {
+					        int numberOfBabies;
+					        System.out.print ("Enter number of babies: ");
+					        Scanner keyboard = new Scanner (System.in);
+					        numberOfBabies = keyboard.nextInt ();
+					        switch (numberOfBabies)
+					        {
+					            case 1:
+					                System.out.println ("Congratulations.");
+					                break;
+					            case 2:
+					                System.out.println ("Wow. Twins.");
+					                break;
+					            case 3:
+					                System.out.println ("Wow. Triplets.");
+					                break;
+					            case 4:
+					            case 5:
+					                System.out.print ("Unbelieveable; ");
+					                System.out.println (numberOfBabies + " babies.");
+					                break;
+					            default:
+					                System.out.println ("I don't believe you.");
+					                break;
+					        }
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q4-J.png">
+			</span>
+
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					var numberOfBabies: Int
+
+					print ("Enter number of babies: ", terminator: "")
+
+					if let numberOfBabies = readLine() {
+					    if let numberOfBabies = Int(numberOfBabies){
+					        switch numberOfBabies{
+					        case 1:
+					            print("Congratulations.")
+					        case 2:
+					            print("Wow. Twins.")
+					        case 3:
+					            print("Wow. Triplets.")
+					        case 4:
+					            print("Unbelieveable; ")
+					            print("\(numberOfBabies) babies.")
+					        case 5:
+					            print("Unbelieveable; ")
+					            print("\(numberOfBabies) babies.")
+					        default:
+					            print("I don't believe you.")
+					        }
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/Q4-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="prism.css" type="text/css" media="all">
+		<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
+	</head>
+
+	<header>
+		<h1>Part E</h1>
+	</header>
+
+	<body>
+		<script src="prism.js"></script>
+		<p><a href="index.html" class="btn"><- Return</a></p>
+
+		<div class="code full">
+			<span>
+				<h2>Swift</h2>
+				<pre><code class="language-swift">
+					import UIKit
+
+					class ViewController: UIViewController {
+					    @IBOutlet weak var label_One: UILabel!
+					    @IBOutlet weak var label_Two: UILabel!
+					    @IBOutlet weak var label_Solution: UILabel!
+					    
+					    
+					    @IBAction func slider_One(_ sender: UISlider) {
+					        label_One.text = String(Int(sender.value))
+					    }
+					    
+					    @IBAction func slider_Two(_ sender: UISlider) {
+					        label_Two.text = String(Int(sender.value))
+					    }
+					    
+					    @IBOutlet weak var sliderOne: UISlider!
+					    @IBOutlet weak var sliderTwo: UISlider!
+					    
+					    @IBAction func solution(_ sender: UISlider) {
+					        let solution = Int(sliderOne.value) * Int(sliderTwo.value)
+					        
+					        label_Solution.text = "\(solution)"
+					    }
+					    
+					    
+					    
+					    override func viewDidLoad() {
+					        super.viewDidLoad()
+					        // Do any additional setup after loading the view.
+					    }
+					}
+				</code></pre>
+
+				<h3>Output</h3>
+				<img src="images/QE-S.png">
+			</span>
+		</div>
+	</body>
+
+	<footer>
+
+	</footer>
+</html>
